@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="shortcut icon" href="/calculator/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<!-- Internal Javascript -->
+<script>
+    // to clear all values in display tag
+    function aclr() {
+        document.getElementById('result').value = "";
+    }
+    
+    // delete the single string
+    function del() {
+        let delvalue = document.getElementById('result').value;
+        let y = delvalue.slice(0, -1);
+        document.getElementById('result').value = y;
+    }
+
+    //shows the input values
+    function view(number) {
+        document.getElementById('result').value += number;
+    }
+
+    // calculates the values
+    function calculate() {
+        try {
+
+            let resvalue = document.getElementById('result').value;
+            let final = eval(resvalue);
+            document.getElementById('result').value = final;
+        }
+        catch (error) {
+            alert('invalid input');
+        }
+    }
+</script>
+
+<body>
+
+    <head>
+        <h1 class="header">Simple Calculator</h1>
+    </head>
+
+    <div class="container">
+        <table>
+            <tr>
+                <td> <input type="text" id="result">
+    </div>
+    </tr>
+    <tr>
+        <td>
+            <button class="buttons" id="allclear" onclick="aclr()">AC</button>
+            <button class="buttons" id="" onclick="del()">&larr;</button>
+            <button class="buttons" id="" onclick="view('/')">&divide;</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button class="buttons" id="" onclick="view('7')">7</button>
+            <button class="buttons" id="" onclick="view('8')">8</button>
+            <button class="buttons" id="" onclick="view('9')">9</button>
+            <button class="buttons" id="" onclick="view('*')">&times;</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button class="buttons" id="" onclick="view('4')">4</button>
+            <button class="buttons" id="" onclick="view('5')">5</button>
+            <button class="buttons" id="" onclick="view('6')">6</button>
+            <button class="buttons" id="" onclick="view('-')">&minus;</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button class="buttons" id="" onclick="view('1')">1</button>
+            <button class="buttons" id="" onclick="view('2')">2</button>
+            <button class="buttons" id="" onclick="view('3')">3</button>
+            <button class="buttons" id="" onclick="view('+')">&plus;</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button class="buttons" id="" onclick="view('.')">.</button>
+            <button class="buttons" id="" onclick="view('0')">0</button>
+            <button class="buttons" id="equal" onclick="calculate()">&equals;</button>
+        </td>
+    </tr>
+    </table>
+
+
+
+
+
+
+    </div>
+</body>
+
+</html>
